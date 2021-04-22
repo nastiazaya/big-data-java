@@ -15,7 +15,7 @@ public class Main {
                 .x(4)
                 .build();
 
-        PolicyService policyService2 = new PolicyService(6,2,5,4);
+        //PolicyService policyService2 = new PolicyService(6,2,5,4);
 
         System.out.println(policyService1);
 
