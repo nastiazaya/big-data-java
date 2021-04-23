@@ -1,0 +1,39 @@
+package heroesgame;
+
+public class GameLog {
+
+    public static void howKick(Hero hitHero, Hero attackedHero){
+        System.out.println(hitHero.heroType() + " is hit the " + attackedHero.heroType());
+    }
+
+    public static void heroKick(Hero hitHero,Hero attackedHero, int hpBefore){
+        if(attackedHero.getHp() <= 0){
+            System.out.println(hitHero.heroType() + " was kill the " + attackedHero.heroType());
+        }else{
+            int lostHP = hpBefore - attackedHero.getHp();
+            System.out.println(attackedHero.heroType() + " lost " + lostHP + " from his hp");
+        }
+    }
+
+    public static void bothHeroIsHobbit() {
+        System.out.println("Hobbits are crying\nGame Over");
+    }
+
+    public static void bothHeroIsElf() {
+        System.out.println("Elfs can not fight each other\nGame Over");
+    }
+
+
+     public static void gameOver(Hero hero1, Hero hero2){
+
+        if(hero1.isAlive() && !(hero2.isAlive())){
+            System.out.println(hero1.heroType() + " is win!");
+            System.out.println(hero2.heroType() + " is lose!");
+        } else {
+            System.out.println(hero2.heroType() + " is win!");
+            System.out.println(hero1.heroType() + " is lose!");
+        }
+         System.out.println("Game Over");
+     }
+
+}

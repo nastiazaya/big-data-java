@@ -15,6 +15,11 @@ public class Hobbit extends Hero{
         toCry();
     }
 
+    @Override
+    public String heroType() {
+        return "Hobbit";
+    }
+
     private void toCry() {
         System.out.println("Hobbit cry");
     }

@@ -14,6 +14,9 @@ public abstract class Hero {
     public abstract void kick(Hero enemy);
 
     public boolean isAlive(){
-        return hp != 0;
+        return hp > 0;
     }
+
+    public abstract String heroType();
+
 }
