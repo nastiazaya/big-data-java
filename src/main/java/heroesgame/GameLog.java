@@ -9,6 +9,8 @@ public class GameLog {
     public static void heroKick(Hero hitHero,Hero attackedHero, int hpBefore){
         if(attackedHero.getHp() <= 0){
             System.out.println(hitHero.heroType() + " was kill the " + attackedHero.heroType());
+        }else if(hitHero.heroType().equals("Elf")){
+            System.out.println(attackedHero.heroType() + " lost 1 from his power");
         }else{
             int lostHP = hpBefore - attackedHero.getHp();
             System.out.println(attackedHero.heroType() + " lost " + lostHP + " from his hp");

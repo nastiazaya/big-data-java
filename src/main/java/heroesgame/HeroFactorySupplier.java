@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 
-public class HeroFactoryAnother {
+public class HeroFactorySupplier {
     Map<Integer, Supplier<Hero>> heroesFactory = Map.of(1, getElf(),
             2, getHobbit(),
             3, getKing(),
