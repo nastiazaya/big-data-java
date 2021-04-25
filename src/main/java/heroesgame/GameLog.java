@@ -2,11 +2,12 @@ package heroesgame;
 
 public class GameLog {
 
-    public static void howKick(Hero hitHero, Hero attackedHero){
+
+    public void howKick(Hero hitHero, Hero attackedHero){
         System.out.println(hitHero.heroType() + " is hit the " + attackedHero.heroType());
     }
 
-    public static void heroKick(Hero hitHero,Hero attackedHero, int hpBefore){
+    public void heroKick(Hero hitHero,Hero attackedHero, int hpBefore){
         if(attackedHero.getHp() <= 0){
             System.out.println(hitHero.heroType() + " was kill the " + attackedHero.heroType());
         }else if(hitHero.heroType().equals("Elf")){
@@ -17,16 +18,16 @@ public class GameLog {
         }
     }
 
-    public static void bothHeroIsHobbit() {
+    public void bothHeroIsHobbit() {
         System.out.println("Hobbits are crying\nGame Over");
     }
 
-    public static void bothHeroIsElf() {
+    public void bothHeroIsElf() {
         System.out.println("Elfs can not fight each other\nGame Over");
     }
 
 
-     public static void gameOver(Hero hero1, Hero hero2){
+     public void gameOver(Hero hero1, Hero hero2){
 
         if(hero1.isAlive() && !(hero2.isAlive())){
             System.out.println(hero1.heroType() + " is win!");

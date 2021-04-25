@@ -2,12 +2,10 @@ package heroesgame;
 
 public class Hobbit extends Hero{
 
-    private static final int POWER = 0;
-    private static final int HP = 3;
-
 
     public Hobbit() {
-        super(POWER, HP);
+        power = 0;
+        hp = 3;
     }
 
     @Override
@@ -16,8 +14,18 @@ public class Hobbit extends Hero{
     }
 
     @Override
+    public void dia() {
+        hp = 0;
+    }
+
+    @Override
     public String heroType() {
         return "Hobbit";
+    }
+
+    @Override
+    public void die() {
+        hp = 0;
     }
 
     private void toCry() {
