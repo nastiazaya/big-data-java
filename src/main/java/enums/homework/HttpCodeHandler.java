@@ -13,16 +13,9 @@ public class HttpCodeHandler {
         put(HttpCode.SERVER_ERROR, new ServerErrorCodeHttpHandler());
     }};
 
-    public static void main(String[] args) {
-        handleHttpCode(150);
-        handleHttpCode(234);
-        handleHttpCode(345);
-        handleHttpCode(456);
-        handleHttpCode(567);
-        handleHttpCode(678);
-    }
 
-    public static void handleHttpCode(int httpCode){
+
+    public void handleHttpCode(int httpCode){
         httpCodeHandlers.get(HttpCode.getHttpCode(httpCode)).handle();
     }
 }
