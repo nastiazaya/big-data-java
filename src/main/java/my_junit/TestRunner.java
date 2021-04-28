@@ -12,19 +12,19 @@ public class TestRunner {
     @SneakyThrows
     public void runAllTestsOfClass(String className) {
         Class<?> aClass = Class.forName(className);
-        Constructor<?> constructor = aClass.getDeclaredConstructor(null);
+        Constructor<?> constructor = aClass.getDeclaredConstructor();
         constructor.setAccessible(true);
-        Object testClassInstance = constructor.newInstance();
         Method[] methods = aClass.getMethods();
         Method[] testMethods = getTestMethods(methods);
         Method[] beforeTestMethods = getBeforeTestMethods(methods);
         for (Method test : testMethods) {
+            Object testClassInstance = constructor.newInstance();
             for (Method beforeTest : beforeTestMethods) {
                 beforeTest.setAccessible(true);
-                beforeTest.invoke(testClassInstance, null);
+                beforeTest.invoke(testClassInstance);
             }
             test.setAccessible(true);
-            test.invoke(testClassInstance, null);
+            test.invoke(testClassInstance);
         }
     }
 
