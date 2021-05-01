@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class ColorFrame extends JFrame {
     public ColorFrame(int counter) throws HeadlessException {
         JButton button = new JButton("click to print counter");
-        AtomicReference<Integer> num = new AtomicReference<>(Integer.signum(counter));
+        AtomicReference<Integer> num = new AtomicReference<>(counter);
         button.addActionListener(e -> {
             System.out.println(num);
             num.getAndSet(num.get() + 1);
