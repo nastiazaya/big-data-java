@@ -21,11 +21,7 @@ public class SecondMain {
 
                     });
                     thread.start();
-
                 }
-            }
-            else{
-                break;
             }
             Thread.sleep(10000);
         }
