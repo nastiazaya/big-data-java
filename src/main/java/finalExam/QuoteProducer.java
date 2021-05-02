@@ -36,6 +36,7 @@ public class QuoteProducer {
                 .text(randonQuote)
                 .status(Status.getStatus(randonQuote.length()))
                 .build();
+        countID++;
 
         return quote;
     }
@@ -52,7 +53,6 @@ public class QuoteProducer {
         oos.writeObject(quote);
         oos.close();
         fos.close();
-        countID++;
     }
 
 

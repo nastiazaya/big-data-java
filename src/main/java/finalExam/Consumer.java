@@ -23,8 +23,7 @@ public class Consumer {
     private Quote readFromFile(File file){
         FileInputStream fis = new FileInputStream(file);
         ObjectInputStream oos = new ObjectInputStream(fis);
-        Quote quote = (Quote) oos.readObject();
-        return quote;
+        return (Quote) oos.readObject();
     }
 
     @SneakyThrows
