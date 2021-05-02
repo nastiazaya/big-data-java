@@ -4,9 +4,6 @@ import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 
 import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 
@@ -42,8 +39,8 @@ public class QuoteProducer {
 
     @SneakyThrows
     private void writeToFile(Quote quote){
-        LocalDate now = LocalDate.now();
-        String filePath = "src/main/java/finalExam/objfile/" + now.toString() + countID + ".obj";
+        long id = System.nanoTime();
+        String filePath = "src/main/java/finalExam/objfile/" + id + ".obj";
         File file = new File(filePath);
         file.createNewFile();
         FileOutputStream fos = new FileOutputStream(file);
