@@ -5,7 +5,6 @@ public class FirstMain {
         QuoteProducer quoteProducer = new QuoteProducer();
         for (int i = 0; i < 2; i++) {
             quoteProducer.start();
-            System.out.println(i);
         }
     }
 }
