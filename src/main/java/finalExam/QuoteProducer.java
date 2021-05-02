@@ -22,14 +22,15 @@ public class QuoteProducer {
 
 
     public void start() {
-        Quote quote = createQyute();
+        long id = System.nanoTime();
+        Quote quote = createQyute(id);
         writeToFile(quote);
     }
 
-    private Quote createQyute(){
+    private Quote createQyute(long id){
         String randonQuote = quotes.get(random.nextInt(quotes.size()));
         Quote quote = Quote.builder()
-                .id(countID)
+                .id(id)
                 .text(randonQuote)
                 .status(Status.getStatus(randonQuote.length()))
                 .build();
@@ -39,8 +40,7 @@ public class QuoteProducer {
 
     @SneakyThrows
     private void writeToFile(Quote quote){
-        long id = System.nanoTime();
-        String filePath = "src/main/java/finalExam/objfile/" + id + ".obj";
+        String filePath = "src/main/java/finalExam/objfile/" + quote.getId() + ".obj";
         File file = new File(filePath);
         file.createNewFile();
         FileOutputStream fos = new FileOutputStream(file);
