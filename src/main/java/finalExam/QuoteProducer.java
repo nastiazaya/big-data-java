@@ -37,7 +37,6 @@ public class QuoteProducer {
                 .status(Status.getStatus(randonQuote.length()))
                 .build();
         countID++;
-
         return quote;
     }
 
