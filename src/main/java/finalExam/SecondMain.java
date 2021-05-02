@@ -15,12 +15,19 @@ public class SecondMain {
             File[] files = file.listFiles();
             if(files != null){
                 for (File nextFile : files){
-                    consumer.start(nextFile);
-                    System.out.println("create: " + nextFile.getName());
+                    Thread thread = new Thread(() -> {
+                        consumer.start(nextFile);
+                        System.out.println("create: " + nextFile.getName());
+
+                    });
+                    thread.start();
 
                 }
-                sleep(10000);
             }
+            else{
+                break;
+            }
+            Thread.sleep(10000);
         }
     }
 }
