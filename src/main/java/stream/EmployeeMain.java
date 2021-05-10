@@ -1,6 +1,7 @@
 package stream;
 
 import java.util.*;
+
 import java.util.stream.Collectors;
 
 public class EmployeeMain {
@@ -9,10 +10,10 @@ public class EmployeeMain {
     public static void main(String[] args) {
 
         EmployeeMain employeeMain = new EmployeeMain();
-        List<Employee> employeeList = List.of(new Employee("employee1", 1000,Genter.MAN,"company1"),
+        List<Employee> employeeList = List.of(new Employee("employee1", 30000,Genter.MAN,"company1"),
                 new Employee("employee2", 1500, Genter.WOMAN,"company1"),
-                new Employee("employe3", 4000, Genter.WOMAN,"company2"),
-                new Employee("emp4", 2000,Genter.WOMAN,"company3"));
+                new Employee("employe3", 40000, Genter.WOMAN,"company2"),
+                new Employee("emp4", 20100,Genter.WOMAN,"company2"));
 
         System.out.println(employeeMain.sumSalary(employeeList));
         System.out.println(employeeMain.sortEmploesByNameLength(employeeList));
@@ -21,14 +22,19 @@ public class EmployeeMain {
 
         System.out.println(employeeMain.groupEmployeeByCompanyName(employeeList));
 
-        /*  lab:165 employeeList.stream()
-                .filter(e -> e.getCategories().equals(Categories.SENIORS.toString()))
-                .collect(Collectors.groupingBy((Employee::getCompantName,));*/
+        System.out.println(companyNameWithMoreSeniors(employeeList));
 
 
     }
 
-    private Map<String, List<Employee>> groupEmployeeByCompanyName(List<Employee> employeeList) {
+    public static String companyNameWithMoreSeniors(List<Employee> employeeList) {
+        return employeeList.stream()
+                .filter(e -> e.getCategories().equals(Categories.SENIORS))
+                .collect(Collectors.groupingBy((Employee::getCompanyName), Collectors.counting())).entrySet().stream()
+                .max((e1, e2) -> e1.getValue() > e2.getValue() ? 1 : -1).get().getKey();
+    }
+
+    public Map<String, List<Employee>> groupEmployeeByCompanyName(List<Employee> employeeList) {
         return employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getCompanyName, Collectors.toList()));
     }

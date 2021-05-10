@@ -25,4 +25,10 @@ public enum Categories {
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException(val + " not supported"));
     }
+
+    @Override
+    public String toString() {
+
+        return name;
+    }
 }
